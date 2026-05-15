@@ -5,27 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nurin Najwa | Software Developer E-Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     *{
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:'Poppins', sans-serif;
     }
 
     :root{
-      --bg:#fff7fb;
-      --card:#ffffff;
-      --pink:#ff7aaa;
-      --purple:#9b7bff;
-      --blue:#6ecbff;
-      --dark:#2b2430;
-      --muted:#756b7a;
-      --soft:#fff0f6;
-      --border:rgba(255,122,170,0.25);
-      --shadow:0 15px 35px rgba(155,123,255,0.14);
+      --bg:#07111f;
+      --bg2:#0b172a;
+      --card:#101f33;
+      --card2:#0f1b2d;
+      --line:rgba(148, 163, 184, 0.18);
+      --text:#e5f0ff;
+      --muted:#9fb2cc;
+      --blue:#38bdf8;
+      --cyan:#22d3ee;
+      --purple:#8b5cf6;
+      --green:#22c55e;
+      --yellow:#facc15;
+      --shadow:0 24px 60px rgba(0,0,0,0.35);
+      --radius:24px;
     }
 
     html{
@@ -33,27 +36,41 @@
     }
 
     body{
+      font-family:'Inter', sans-serif;
       background:
-        radial-gradient(circle at top left, #ffe3ef 0%, transparent 35%),
-        radial-gradient(circle at top right, #e9e1ff 0%, transparent 35%),
-        linear-gradient(135deg, #fff7fb, #f8fbff);
-      color:var(--dark);
+        radial-gradient(circle at 15% 10%, rgba(56,189,248,0.20), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(139,92,246,0.22), transparent 30%),
+        linear-gradient(135deg, var(--bg), var(--bg2));
+      color:var(--text);
       line-height:1.7;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size:45px 45px;
+      pointer-events:none;
+      z-index:-1;
     }
 
     .container{
       width:90%;
-      max-width:1150px;
+      max-width:1180px;
       margin:auto;
     }
 
     nav{
       position:sticky;
       top:0;
-      z-index:10;
-      background:rgba(255,255,255,0.75);
-      backdrop-filter:blur(15px);
-      border-bottom:1px solid var(--border);
+      z-index:99;
+      background:rgba(7,17,31,0.82);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
     }
 
     .navbar{
@@ -64,188 +81,271 @@
     }
 
     .logo{
+      font-family:'JetBrains Mono', monospace;
       font-weight:800;
-      color:var(--pink);
-      font-size:22px;
+      font-size:18px;
+      color:var(--blue);
+    }
+
+    .logo span{
+      color:var(--green);
     }
 
     .nav-links{
       display:flex;
-      gap:20px;
+      gap:18px;
       flex-wrap:wrap;
     }
 
     .nav-links a{
       text-decoration:none;
-      color:var(--dark);
+      color:var(--muted);
       font-size:14px;
       font-weight:600;
+      transition:0.3s;
     }
 
     .nav-links a:hover{
-      color:var(--pink);
+      color:var(--blue);
     }
 
     .hero{
-      min-height:90vh;
+      min-height:92vh;
       display:grid;
-      grid-template-columns:1.2fr 0.8fr;
+      grid-template-columns:1.1fr 0.9fr;
       align-items:center;
-      gap:40px;
+      gap:45px;
       padding:70px 0;
     }
 
     .tag{
-      display:inline-block;
-      background:var(--soft);
-      color:var(--pink);
-      padding:9px 18px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 16px;
       border-radius:999px;
+      background:rgba(56,189,248,0.12);
+      border:1px solid rgba(56,189,248,0.30);
+      color:var(--blue);
+      font-family:'JetBrains Mono', monospace;
       font-size:13px;
-      font-weight:700;
-      margin-bottom:20px;
-      border:1px solid var(--border);
+      font-weight:600;
+      margin-bottom:22px;
     }
 
     h1{
-      font-size:55px;
-      line-height:1.1;
-      margin-bottom:20px;
+      font-size:58px;
+      line-height:1.05;
+      margin-bottom:22px;
+      letter-spacing:-1.8px;
     }
 
     h1 span{
-      background:linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+      background:linear-gradient(135deg, var(--blue), var(--cyan), var(--purple));
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
     }
 
-    .hero p{
+    .hero-text p{
       color:var(--muted);
-      max-width:650px;
-      margin-bottom:30px;
       font-size:16px;
+      max-width:670px;
+      margin-bottom:30px;
     }
 
     .btn-group{
       display:flex;
       gap:15px;
       flex-wrap:wrap;
+      margin-bottom:30px;
     }
 
     .btn{
+      display:inline-block;
+      text-decoration:none;
       padding:13px 22px;
       border-radius:999px;
-      text-decoration:none;
-      font-weight:700;
       font-size:14px;
+      font-weight:800;
       transition:0.3s;
     }
 
     .btn-primary{
-      background:linear-gradient(135deg, var(--pink), var(--purple));
+      background:linear-gradient(135deg, var(--blue), var(--purple));
       color:white;
-      box-shadow:var(--shadow);
+      box-shadow:0 14px 35px rgba(56,189,248,0.20);
     }
 
     .btn-secondary{
-      background:white;
-      color:var(--pink);
-      border:1px solid var(--border);
+      border:1px solid rgba(148,163,184,0.25);
+      color:var(--text);
+      background:rgba(255,255,255,0.05);
     }
 
     .btn:hover{
-      transform:translateY(-3px);
+      transform:translateY(-4px);
     }
 
-    .profile-card{
-      background:rgba(255,255,255,0.8);
-      border:1px solid var(--border);
-      border-radius:35px;
-      padding:35px;
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      max-width:650px;
+    }
+
+    .stat-box{
+      background:rgba(255,255,255,0.045);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+    }
+
+    .stat-box h3{
+      color:var(--blue);
+      font-size:24px;
+      margin-bottom:3px;
+    }
+
+    .stat-box p{
+      font-size:13px;
+      margin:0;
+    }
+
+    .terminal-card{
+      background:rgba(16,31,51,0.88);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
       box-shadow:var(--shadow);
-      text-align:center;
+      overflow:hidden;
     }
 
-    .avatar{
-      width:150px;
-      height:150px;
-      margin:auto;
-      border-radius:50%;
-      background:linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+    .terminal-top{
       display:flex;
       align-items:center;
-      justify-content:center;
-      color:white;
-      font-size:48px;
-      font-weight:800;
-      margin-bottom:20px;
+      gap:8px;
+      padding:15px 18px;
+      background:rgba(255,255,255,0.06);
+      border-bottom:1px solid var(--line);
     }
 
-    .profile-card h2{
-      font-size:25px;
-      margin-bottom:8px;
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
     }
 
-    .profile-card p{
-      font-size:14px;
+    .red{background:#ff5f56;}
+    .yellow{background:#ffbd2e;}
+    .green{background:#27c93f;}
+
+    .terminal-title{
+      margin-left:10px;
       color:var(--muted);
-      margin-bottom:15px;
+      font-family:'JetBrains Mono', monospace;
+      font-size:13px;
     }
+
+    .terminal-body{
+      padding:25px;
+      font-family:'JetBrains Mono', monospace;
+      font-size:14px;
+    }
+
+    .code-line{
+      margin-bottom:12px;
+      color:#cbd5e1;
+    }
+
+    .code-line .key{color:var(--blue);}
+    .code-line .value{color:var(--green);}
+    .code-line .string{color:#fbbf24;}
+    .code-line .comment{color:#64748b;}
 
     section{
-      padding:70px 0;
+      padding:75px 0;
     }
 
     .section-title{
+      margin-bottom:42px;
       text-align:center;
-      margin-bottom:45px;
+    }
+
+    .section-title .mini{
+      font-family:'JetBrains Mono', monospace;
+      color:var(--blue);
+      font-size:13px;
+      margin-bottom:8px;
     }
 
     .section-title h2{
-      font-size:36px;
-      margin-bottom:10px;
+      font-size:38px;
+      margin-bottom:12px;
+      letter-spacing:-1px;
     }
 
     .section-title p{
       color:var(--muted);
-      max-width:700px;
+      max-width:720px;
       margin:auto;
     }
 
     .grid{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
-      gap:25px;
+      gap:24px;
     }
 
     .grid-2{
       display:grid;
       grid-template-columns:repeat(2, 1fr);
-      gap:25px;
+      gap:24px;
     }
 
     .card{
-      background:rgba(255,255,255,0.82);
-      border:1px solid var(--border);
-      border-radius:28px;
+      background:rgba(16,31,51,0.75);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
       padding:28px;
       box-shadow:var(--shadow);
       transition:0.3s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      width:140px;
+      height:140px;
+      border-radius:50%;
+      background:rgba(56,189,248,0.08);
+      right:-55px;
+      top:-55px;
     }
 
     .card:hover{
       transform:translateY(-6px);
+      border-color:rgba(56,189,248,0.35);
     }
 
     .card h3{
-      color:var(--pink);
-      margin-bottom:12px;
+      color:var(--text);
       font-size:21px;
+      margin-bottom:12px;
+      position:relative;
     }
 
-    .card p, .card li{
+    .card h3 span{
+      color:var(--blue);
+      font-family:'JetBrains Mono', monospace;
+      font-size:15px;
+    }
+
+    .card p,
+    .card li{
       color:var(--muted);
       font-size:15px;
+      position:relative;
     }
 
     ul{
@@ -253,38 +353,23 @@
       margin-top:10px;
     }
 
-    .badge-list{
+    .skill-tags{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin-top:15px;
-    }
-
-    .badge{
-      background:var(--soft);
-      color:var(--pink);
-      padding:8px 13px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:600;
-      border:1px solid var(--border);
-    }
-
-    .project-card{
+      margin-top:16px;
       position:relative;
-      overflow:hidden;
     }
 
-    .project-card::before{
-      content:"";
-      position:absolute;
-      width:120px;
-      height:120px;
-      background:linear-gradient(135deg, var(--pink), var(--blue));
-      opacity:0.12;
-      border-radius:50%;
-      right:-40px;
-      top:-40px;
+    .tag-skill{
+      padding:8px 12px;
+      background:rgba(56,189,248,0.10);
+      border:1px solid rgba(56,189,248,0.22);
+      color:#dff7ff;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      font-family:'JetBrains Mono', monospace;
     }
 
     .timeline{
@@ -293,34 +378,90 @@
     }
 
     .timeline-item{
-      background:white;
-      border-left:6px solid var(--pink);
-      border-radius:20px;
-      padding:22px;
+      background:rgba(16,31,51,0.80);
+      border:1px solid var(--line);
+      border-left:5px solid var(--blue);
+      border-radius:22px;
+      padding:24px;
       box-shadow:var(--shadow);
     }
 
     .timeline-item h3{
-      color:var(--purple);
+      color:var(--blue);
       margin-bottom:8px;
     }
 
-    .reflection-box{
-      background:linear-gradient(135deg, rgba(255,122,170,0.13), rgba(155,123,255,0.13));
-      border:1px solid var(--border);
-      border-radius:35px;
-      padding:35px;
+    .timeline-item p{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .project-card{
+      min-height:310px;
+    }
+
+    .project-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:12px;
+      position:relative;
+    }
+
+    .project-icon{
+      width:45px;
+      height:45px;
+      border-radius:15px;
+      background:linear-gradient(135deg, rgba(56,189,248,0.25), rgba(139,92,246,0.25));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--blue);
+      font-family:'JetBrains Mono', monospace;
+      font-weight:800;
+      border:1px solid rgba(56,189,248,0.25);
+    }
+
+    .evidence-note{
+      margin-top:28px;
+      padding:22px;
+      border-radius:22px;
+      background:rgba(34,197,94,0.10);
+      border:1px solid rgba(34,197,94,0.25);
+      color:#c9f7d7;
+    }
+
+    .reflection{
+      background:
+        linear-gradient(135deg, rgba(56,189,248,0.10), rgba(139,92,246,0.12)),
+        rgba(16,31,51,0.75);
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:34px;
       box-shadow:var(--shadow);
     }
 
-    .footer{
+    .reflection h3{
+      color:var(--blue);
+      margin-bottom:10px;
+      font-size:22px;
+    }
+
+    .reflection p{
+      color:var(--muted);
+      margin-bottom:22px;
+    }
+
+    footer{
+      padding:32px 0;
       text-align:center;
-      padding:30px;
+      border-top:1px solid var(--line);
       color:var(--muted);
       font-size:14px;
     }
 
-    @media(max-width:900px){
+    @media(max-width:950px){
       .hero,
       .grid,
       .grid-2{
@@ -329,6 +470,10 @@
 
       h1{
         font-size:42px;
+      }
+
+      .stats{
+        grid-template-columns:1fr;
       }
 
       .nav-links{
@@ -342,7 +487,8 @@
 
   <nav>
     <div class="container navbar">
-      <div class="logo">Nurin Najwa</div>
+      <div class="logo">&lt;NurinNajwa<span>/&gt;</span></div>
+
       <div class="nav-links">
         <a href="#career">Career</a>
         <a href="#skills">Skills</a>
@@ -354,31 +500,62 @@
   </nav>
 
   <header class="container hero">
-    <div>
-      <span class="tag">Personal Career Development Portfolio</span>
-      <h1>Hi, I’m <span>Nurin Najwa</span></h1>
+    <div class="hero-text">
+      <div class="tag">CSA30203 • Individual E-Portfolio</div>
+
+      <h1>
+        Software Developer <br>
+        <span>Career Portfolio</span>
+      </h1>
+
       <p>
-        I am a Computer Science student who is interested in becoming a Software Developer,
-        especially in web and mobile application development. This e-portfolio shows my career goal,
-        skills, learning evidence, project experience, and personal reflection for my future career.
+        Hi, I am <b>Nurin Najwa</b>, a Computer Science student who is interested in becoming
+        a Software Developer. This e-portfolio presents my career exploration, skills assessment,
+        career development plan, evidence of learning, and personal reflection.
       </p>
 
       <div class="btn-group">
-        <a href="#projects" class="btn btn-primary">View My Projects</a>
-        <a href="#reflection" class="btn btn-secondary">Personal Reflection</a>
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#skills" class="btn btn-secondary">View Skills</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat-box">
+          <h3>6+</h3>
+          <p>Academic Projects</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>5+</h3>
+          <p>Development Tools</p>
+        </div>
+
+        <div class="stat-box">
+          <h3>3</h3>
+          <p>Main Fields: Web, Mobile, IoT</p>
+        </div>
       </div>
     </div>
 
-    <div class="profile-card">
-      <div class="avatar">NN</div>
-      <h2>Nurin Najwa</h2>
-      <p>Software Developer Student</p>
-      <div class="badge-list" style="justify-content:center;">
-        <span class="badge">Flutter</span>
-        <span class="badge">Firebase</span>
-        <span class="badge">Laravel</span>
-        <span class="badge">CodeIgniter</span>
-        <span class="badge">PHP</span>
+    <div class="terminal-card">
+      <div class="terminal-top">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+        <div class="terminal-title">student_profile.js</div>
+      </div>
+
+      <div class="terminal-body">
+        <div class="code-line"><span class="key">const</span> student = {</div>
+        <div class="code-line">&nbsp;&nbsp;name: <span class="string">"Nurin Najwa"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;role: <span class="string">"Software Developer Student"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;interest: <span class="string">"Web & Mobile Development"</span>,</div>
+        <div class="code-line">&nbsp;&nbsp;skills: [<span class="string">"PHP"</span>, <span class="string">"Flutter"</span>, <span class="string">"Firebase"</span>],</div>
+        <div class="code-line">&nbsp;&nbsp;goal: <span class="string">"Build secure and useful applications"</span></div>
+        <div class="code-line">};</div>
+        <br>
+        <div class="code-line"><span class="comment">// Career goal: become a confident developer</span></div>
+        <div class="code-line"><span class="value">console.log</span>(student.goal);</div>
       </div>
     </div>
   </header>
@@ -386,50 +563,53 @@
   <section id="career">
     <div class="container">
       <div class="section-title">
-        <h2>Career Exploration</h2>
-        <p>Chosen career role: Software Developer with security awareness.</p>
+        <div class="mini">01. CAREER EXPLORATION</div>
+        <h2>Chosen Career Role</h2>
+        <p>
+          The career role that I choose is Software Developer with security awareness.
+        </p>
       </div>
 
       <div class="grid-2">
         <div class="card">
-          <h3>Why I Choose Software Developer</h3>
+          <h3><span>//</span> Why Software Developer?</h3>
           <p>
-            I choose Software Developer because I enjoy building systems that can solve real problems.
-            I am interested in creating websites, mobile applications, and user-friendly systems.
-            Since software is used in many industries, this career gives me the chance to keep learning
-            and improve my technical skills.
+            I choose Software Developer because I enjoy creating systems and applications
+            that can solve real problems. I am interested in building websites, mobile apps,
+            and database systems. This career is suitable for me because it allows me to use
+            creativity, logic, and technical skills together.
           </p>
         </div>
 
         <div class="card">
-          <h3>Job Responsibilities</h3>
+          <h3><span>//</span> Job Responsibilities</h3>
           <ul>
             <li>Design and develop web or mobile applications.</li>
-            <li>Write clean and functional coding.</li>
-            <li>Connect systems with databases such as MySQL and Firebase.</li>
-            <li>Test and fix errors in the system.</li>
-            <li>Improve system security, user login, and data protection.</li>
+            <li>Write, test, and debug coding.</li>
+            <li>Connect applications with databases.</li>
+            <li>Improve system performance and user experience.</li>
+            <li>Apply secure coding practices to protect user data.</li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>Required Skills</h3>
+          <h3><span>//</span> Required Skills</h3>
           <ul>
-            <li>Programming knowledge such as PHP, HTML, CSS, JavaScript, and Dart.</li>
-            <li>Database management using MySQL, Firebase, or Firestore.</li>
+            <li>Programming knowledge such as HTML, CSS, JavaScript, PHP, and Dart.</li>
+            <li>Database skills using MySQL, Firebase, or Firestore.</li>
+            <li>Understanding of system design and user interface.</li>
             <li>Basic networking and cybersecurity knowledge.</li>
-            <li>Problem-solving and logical thinking.</li>
-            <li>Teamwork and communication skills.</li>
+            <li>Problem-solving, teamwork, and communication skills.</li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>Relevance to Cybersecurity</h3>
+          <h3><span>//</span> Relevance to Cybersecurity</h3>
           <p>
-            Software developers must understand cybersecurity because applications handle user data,
-            login information, and private records. A developer should know how to prevent weak passwords,
-            insecure databases, poor access control, and unsafe coding practices. This is important to
-            protect users and build trustworthy systems.
+            Software development is related to cybersecurity because applications store user
+            information, login details, and private data. A developer must understand secure
+            login, access control, password protection, and safe database handling. This helps
+            prevent data leakage and protects users from cyber threats.
           </p>
         </div>
       </div>
@@ -439,8 +619,11 @@
   <section id="skills">
     <div class="container">
       <div class="section-title">
-        <h2>Personal Skills Assessment</h2>
-        <p>My current skills compared with industry requirements.</p>
+        <div class="mini">02. PERSONAL SKILLS ASSESSMENT</div>
+        <h2>My Skills Evaluation</h2>
+        <p>
+          This section shows my current technical skills, soft skills, and the skills I still need to improve.
+        </p>
       </div>
 
       <div class="grid">
@@ -449,11 +632,18 @@
           <ul>
             <li>HTML, CSS, JavaScript</li>
             <li>PHP and MySQL</li>
-            <li>Laravel and CodeIgniter 4</li>
+            <li>Laravel 9</li>
+            <li>CodeIgniter 4</li>
             <li>Flutter and Firebase</li>
             <li>Basic Arduino and IoT</li>
-            <li>Basic networking and troubleshooting</li>
           </ul>
+
+          <div class="skill-tags">
+            <span class="tag-skill">HTML</span>
+            <span class="tag-skill">CSS</span>
+            <span class="tag-skill">PHP</span>
+            <span class="tag-skill">Flutter</span>
+          </div>
         </div>
 
         <div class="card">
@@ -461,23 +651,35 @@
           <ul>
             <li>Teamwork</li>
             <li>Communication</li>
-            <li>Creativity in UI design</li>
-            <li>Willingness to learn</li>
-            <li>Problem-solving</li>
+            <li>Creativity</li>
             <li>Time management</li>
+            <li>Problem-solving</li>
+            <li>Willingness to learn</li>
           </ul>
+
+          <div class="skill-tags">
+            <span class="tag-skill">Teamwork</span>
+            <span class="tag-skill">Creative</span>
+            <span class="tag-skill">Adaptable</span>
+          </div>
         </div>
 
         <div class="card">
           <h3>Skills to Improve</h3>
           <ul>
-            <li>Secure coding practices</li>
-            <li>API security</li>
-            <li>Cloud security basics</li>
             <li>Advanced JavaScript</li>
-            <li>GitHub portfolio management</li>
-            <li>Software testing and documentation</li>
+            <li>Secure coding practices</li>
+            <li>API development and security</li>
+            <li>Linux basics</li>
+            <li>Git and GitHub workflow</li>
+            <li>Software testing</li>
           </ul>
+
+          <div class="skill-tags">
+            <span class="tag-skill">Security</span>
+            <span class="tag-skill">API</span>
+            <span class="tag-skill">GitHub</span>
+          </div>
         </div>
       </div>
     </div>
@@ -486,48 +688,55 @@
   <section id="plan">
     <div class="container">
       <div class="section-title">
-        <h2>Career Development Plan</h2>
-        <p>My short-term and long-term goals to become a better Software Developer.</p>
+        <div class="mini">03. CAREER DEVELOPMENT PLAN</div>
+        <h2>My Career Roadmap</h2>
+        <p>
+          A realistic plan to improve my skills and prepare myself for the software development field.
+        </p>
       </div>
 
       <div class="timeline">
         <div class="timeline-item">
           <h3>Short-Term Goal: 0 - 1 Year</h3>
           <p>
-            I want to improve my web development and mobile app development skills. I will continue
-            practicing HTML, CSS, JavaScript, PHP, Flutter, and Firebase. I also want to upload my projects
-            to GitHub so that I can build a proper developer portfolio.
+            I want to strengthen my programming skills, especially in web development and mobile app
+            development. I will continue practicing HTML, CSS, JavaScript, PHP, Flutter, and Firebase.
+            I also want to organize my projects properly and upload them to GitHub.
           </p>
         </div>
 
         <div class="timeline-item">
           <h3>Medium-Term Goal: 1 - 2 Years</h3>
           <p>
-            I want to apply for internship or entry-level jobs related to web development, mobile development,
-            or software support. I also plan to learn tools such as GitHub, Linux, Wireshark, and basic
-            cybersecurity tools to improve my technical background.
+            I plan to apply for internship or junior developer positions. During this stage, I want to
+            learn more about professional development tools, teamwork in software projects, database
+            security, and real industry workflow.
           </p>
         </div>
 
         <div class="timeline-item">
           <h3>Long-Term Goal: 3 - 5 Years</h3>
           <p>
-            My goal is to become a confident Software Developer who can build secure, useful, and professional
-            applications. In the future, I want to work in a company where I can contribute to real projects
-            and continue improving my programming and cybersecurity knowledge.
+            My long-term goal is to become a confident Software Developer who can build secure,
+            useful, and user-friendly applications. I also want to improve my knowledge in cybersecurity
+            so that I can develop systems that are safer for users.
           </p>
         </div>
 
         <div class="timeline-item">
-          <h3>Certifications / Tools I Want to Learn</h3>
-          <div class="badge-list">
-            <span class="badge">CompTIA Security+</span>
-            <span class="badge">CCNA</span>
-            <span class="badge">AWS Cloud Practitioner</span>
-            <span class="badge">GitHub</span>
-            <span class="badge">Linux</span>
-            <span class="badge">Wireshark</span>
-            <span class="badge">Python</span>
+          <h3>Certifications and Tools to Learn</h3>
+          <p>
+            I plan to learn or explore certifications and tools such as CompTIA Security+, CCNA,
+            AWS Cloud Practitioner, Linux, Wireshark, GitHub, Python, and secure coding practices.
+          </p>
+
+          <div class="skill-tags">
+            <span class="tag-skill">Security+</span>
+            <span class="tag-skill">CCNA</span>
+            <span class="tag-skill">AWS</span>
+            <span class="tag-skill">Linux</span>
+            <span class="tag-skill">Wireshark</span>
+            <span class="tag-skill">Python</span>
           </div>
         </div>
       </div>
@@ -537,89 +746,119 @@
   <section id="projects">
     <div class="container">
       <div class="section-title">
-        <h2>Evidence of Learning</h2>
-        <p>Projects that show my learning experience in web, mobile, IoT, and system development.</p>
+        <div class="mini">04. EVIDENCE OF LEARNING</div>
+        <h2>Projects Completed</h2>
+        <p>
+          These are the projects that show my learning experience in web development, mobile application,
+          IoT, and algorithm design.
+        </p>
       </div>
 
       <div class="grid">
         <div class="card project-card">
-          <h3>SmartBite Mobile App</h3>
+          <div class="project-header">
+            <h3>SmartBite Mobile App</h3>
+            <div class="project-icon">01</div>
+          </div>
           <p>
-            A personalized nutrition and meal recommendation mobile app using Flutter and Firebase.
-            The app includes user login, recipe discovery, meal planning, nutrition tracking, BMI display,
-            and rule-based ingredient matching.
+            SmartBite is a personalized nutrition and meal recommendation mobile app. It includes login,
+            user profile, BMI display, meal planning, recipe discovery, nutrition tracking, and rule-based
+            ingredient matching.
           </p>
-          <div class="badge-list">
-            <span class="badge">Flutter</span>
-            <span class="badge">Firebase</span>
-            <span class="badge">Firestore</span>
+          <div class="skill-tags">
+            <span class="tag-skill">Flutter</span>
+            <span class="tag-skill">Firebase</span>
+            <span class="tag-skill">Firestore</span>
           </div>
         </div>
 
         <div class="card project-card">
-          <h3>PlantCare IoT System</h3>
+          <div class="project-header">
+            <h3>PlantCare IoT System</h3>
+            <div class="project-icon">02</div>
+          </div>
           <p>
-            A smart plant watering and monitoring web system. It helps users monitor soil moisture and
-            watering status through a Laravel dashboard. This project improved my understanding of IoT,
-            database connection, and user subscription features.
+            PlantCare IoT is a smart plant watering and monitoring system. It helps users monitor soil
+            moisture and watering information through a web dashboard. This project helped me understand
+            IoT data, database connection, and user subscription features.
           </p>
-          <div class="badge-list">
-            <span class="badge">Laravel</span>
-            <span class="badge">MySQL</span>
-            <span class="badge">IoT</span>
+          <div class="skill-tags">
+            <span class="tag-skill">Laravel</span>
+            <span class="tag-skill">MySQL</span>
+            <span class="tag-skill">IoT</span>
           </div>
         </div>
 
         <div class="card project-card">
-          <h3>Fashion E-Commerce System</h3>
+          <div class="project-header">
+            <h3>Fashion E-Commerce System</h3>
+            <div class="project-icon">03</div>
+          </div>
           <p>
-            A fashion-based e-commerce project built using CodeIgniter 4. The system includes login,
-            user registration, product display, buy now function, order list, and admin order management.
+            A fashion e-commerce system built using CodeIgniter 4. It includes user login, registration,
+            product display, buy now function, order list, profile update, and admin order management.
           </p>
-          <div class="badge-list">
-            <span class="badge">CodeIgniter 4</span>
-            <span class="badge">PHP</span>
-            <span class="badge">MySQL</span>
+          <div class="skill-tags">
+            <span class="tag-skill">CodeIgniter</span>
+            <span class="tag-skill">PHP</span>
+            <span class="tag-skill">MySQL</span>
           </div>
         </div>
 
         <div class="card project-card">
-          <h3>FocusBuddy Study Timer</h3>
+          <div class="project-header">
+            <h3>FocusBuddy Study Timer</h3>
+            <div class="project-icon">04</div>
+          </div>
           <p>
-            A study timer and focus application based on the Pomodoro technique. The idea is to help
-            students manage study sessions, improve focus, and become more productive.
+            FocusBuddy is a study timer and focus app based on the Pomodoro technique. It is designed
+            to help students manage study sessions, improve focus, and increase productivity.
           </p>
-          <div class="badge-list">
-            <span class="badge">UI/UX</span>
-            <span class="badge">Productivity App</span>
+          <div class="skill-tags">
+            <span class="tag-skill">UI/UX</span>
+            <span class="tag-skill">Productivity</span>
+            <span class="tag-skill">App Idea</span>
           </div>
         </div>
 
         <div class="card project-card">
-          <h3>Arduino Night Light Sensor</h3>
+          <div class="project-header">
+            <h3>Arduino Night Light Sensor</h3>
+            <div class="project-icon">05</div>
+          </div>
           <p>
             An Arduino project where the light turns on when the environment is dark and turns off when
-            it becomes bright. This project helped me understand sensors, input/output, and simple automation.
+            the environment is bright. This project helped me understand sensors, automation, and simple
+            hardware logic.
           </p>
-          <div class="badge-list">
-            <span class="badge">Arduino</span>
-            <span class="badge">Sensor</span>
-            <span class="badge">Automation</span>
+          <div class="skill-tags">
+            <span class="tag-skill">Arduino</span>
+            <span class="tag-skill">Sensor</span>
+            <span class="tag-skill">Automation</span>
           </div>
         </div>
 
         <div class="card project-card">
-          <h3>Smart Parking Search Algorithm</h3>
+          <div class="project-header">
+            <h3>Smart Parking Algorithm</h3>
+            <div class="project-icon">06</div>
+          </div>
           <p>
-            A project that compares BFS, DFS, Greedy Best-First Search, and A* Search for smart parking
-            allocation. This project helped me understand algorithm behavior, efficiency, and solution quality.
+            A search algorithm project that compares BFS, DFS, Greedy Best-First Search, and A* Search
+            in a smart parking allocation environment. It helped me understand algorithm behavior,
+            efficiency, memory usage, and solution quality.
           </p>
-          <div class="badge-list">
-            <span class="badge">BFS</span>
-            <span class="badge">DFS</span>
-            <span class="badge">A*</span>
+          <div class="skill-tags">
+            <span class="tag-skill">BFS</span>
+            <span class="tag-skill">DFS</span>
+            <span class="tag-skill">A*</span>
           </div>
         </div>
+      </div>
+
+      <div class="evidence-note">
+        <b>Evidence to add:</b> Insert screenshots of project interfaces, certificates, workshop proof,
+        GitHub links, or system screenshots under this section before submission.
       </div>
     </div>
   </section>
@@ -627,51 +866,57 @@
   <section id="reflection">
     <div class="container">
       <div class="section-title">
-        <h2>Personal Reflection</h2>
-        <p>Dream company and why I am suitable for this career.</p>
+        <div class="mini">05. PERSONAL REFLECTION</div>
+        <h2>Dream Company & Self Reflection</h2>
+        <p>
+          This section explains my dream company, my value, and why I am suitable for this career.
+        </p>
       </div>
 
-      <div class="reflection-box">
+      <div class="reflection">
         <h3>Dream Company: Google</h3>
         <p>
-          I choose Google as my dream company because it is one of the most innovative technology companies
-          in the world. Google creates many products that are used by millions of people, such as Google Search,
-          Gmail, Google Maps, Android, and Google Cloud. I want to work in a company like Google because I can
-          learn from experienced developers, improve my technical skills, and contribute to products that can
-          help many users.
+          I choose Google as my dream company because it is one of the most innovative technology
+          companies in the world. Google develops many products used by millions of people, such as
+          Google Search, Gmail, Google Maps, Android, and Google Cloud. I want to work in a company
+          like Google because I can learn from experienced developers and improve my technical skills.
         </p>
-        <br>
 
         <h3>What Value Can I Bring?</h3>
         <p>
-          I can bring value by being a hardworking and adaptable developer. I may not know everything yet,
-          but I am willing to learn and improve. I have experience building web systems, mobile applications,
-          database features, and IoT projects. This shows that I can explore different technologies and apply
-          them in real projects.
+          I can bring value by being a hardworking, adaptable, and creative developer. I have experience
+          working on web systems, mobile applications, database features, IoT projects, and algorithm-based
+          projects. Even though I am still learning, I am willing to accept feedback and improve my skills.
         </p>
-        <br>
 
         <h3>Why Should You Hire Me?</h3>
         <p>
-          A company should hire me because I am interested in both development and user experience. I care about
-          making systems that are functional, clean, and easy to use. I also understand that software should not
-          only look good, but also be secure and reliable for users.
+          A company should hire me because I am interested in building systems that are functional,
+          user-friendly, and useful. I can work with different technologies such as PHP, Laravel,
+          CodeIgniter, Flutter, Firebase, and MySQL. I also understand the importance of security,
+          especially when handling user data and login systems.
         </p>
-        <br>
 
         <h3>Strengths and Weaknesses</h3>
         <p>
-          My strengths are creativity, willingness to learn, teamwork, and problem-solving. I can design user-friendly
-          interfaces and I am patient when fixing coding errors. My weakness is that I still need to improve my
-          confidence in advanced security and professional development tools. However, I am willing to practice more,
-          learn from feedback, and improve step by step.
+          My strengths are creativity, teamwork, willingness to learn, and problem-solving. I enjoy
+          designing interfaces and improving system functions. My weakness is that I still need to improve
+          my confidence in advanced cybersecurity and professional development tools. However, I am working
+          on it by learning step by step and practicing through projects.
+        </p>
+
+        <h3>Why Would a Company Choose Me?</h3>
+        <p>
+          A company would choose me because I am passionate about software development and I am serious
+          about improving myself. I may not be perfect yet, but I have the effort, basic experience,
+          and motivation to grow into a better developer in the future.
         </p>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <p>© 2026 Nurin Najwa | Personal Career Development E-Portfolio</p>
+  <footer>
+    <p>© 2026 Nurin Najwa | Software Developer E-Portfolio</p>
   </footer>
 
 </body>
